@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { useAuth } from "./AuthContext";
-import { createPublicClient, http, defineChain, formatEther, formatUnits } from "viem";
+import { createPublicClient, http, formatEther, formatUnits } from "viem";
 import { signerToEcdsaValidator } from "@zerodev/ecdsa-validator";
 import { createKernelAccount, createKernelAccountClient, createZeroDevPaymasterClient } from "@zerodev/sdk";
 import { createWalletClient, custom, parseUnits } from "viem";
@@ -142,7 +142,7 @@ export const ZeroDevProvider = ({ children }: { children: ReactNode }) => {
     });
 
     // Save the serialized session key and limit
-    const serializedSessionKey = await serializePermissionAccount(sessionKeyAccount, sessionKeyPrivateKey);
+    const serializedSessionKey = await serializePermissionAccount(sessionKeyAccount as any, sessionKeyPrivateKey);
     localStorage.setItem("virtualCard", serializedSessionKey);
     localStorage.setItem("cardLimit", limit);
     setCardLimit(limit);

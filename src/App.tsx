@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from './AuthContext'
 import { useZeroDev } from './ZeroDevContext'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUp, ArrowDown, Repeat, Bell, ChevronLeft, MoreHorizontal, Download, Droplet, ShoppingBag, CreditCard, Home, LogOut, Copy, Check, Users, Send } from 'lucide-react'
+import { ArrowUp, ArrowDown, Repeat, Bell, ChevronLeft, MoreHorizontal, Droplet, ShoppingBag, CreditCard, Home, LogOut, Copy, Check, Users, Send } from 'lucide-react'
 import { encodeFunctionData, parseUnits } from 'viem'
 import { USDC_ADDRESS } from './ZeroDevContext'
 
