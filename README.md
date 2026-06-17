@@ -52,7 +52,7 @@ No seed phrases. No gas fees. Just your Google account.
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/NAITIKRAHANE/kova-money-test-mvp.git
+git clone https://github.com/Kova-money/kova-money-test-mvp.git
 cd kova-money-test-mvp
 ```
 
@@ -85,7 +85,7 @@ VITE_WEB3AUTH_NETWORK=sapphire_devnet
 npm run dev
 ```
 
-App will be live at `http://localhost:5173`
+App will be live
 
 ---
 
