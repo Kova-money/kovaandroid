@@ -1,51 +1,59 @@
 name: Build Android Wallet
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+push:
+branches: [ main ]
+pull_request:
+branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
+```
+env:
+  VITE_ZERODEV_PROJECT_ID: ${{ secrets.VITE_ZERODEV_PROJECT_ID }}
+  VITE_ZERODEV_BUNDLER_URL: ${{ secrets.VITE_ZERODEV_BUNDLER_URL }}
+  VITE_WEB3AUTH_CLIENT_ID: ${{ secrets.VITE_WEB3AUTH_CLIENT_ID }}
+  VITE_WEB3AUTH_NETWORK: ${{ secrets.VITE_WEB3AUTH_NETWORK }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
+steps:
+  - name: Checkout Source Code
+    uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+  - name: Set up Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: 22
+      cache: npm
 
-      - name: Build Web Application
-        run: npm run build
+  - name: Install Dependencies
+    run: npm install --legacy-peer-deps
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: zulu
-          java-version: 21
+  - name: Build Web Application
+    run: npm run build
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+  - name: Set up JDK 21
+    uses: actions/setup-java@v4
+    with:
+      distribution: zulu
+      java-version: 21
 
-      - name: Sync Capacitor Android Project
-        run: npx cap sync android
+  - name: Set up Android SDK
+    uses: android-actions/setup-android@v3
 
-      - name: Build Android APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
+  - name: Sync Capacitor Android Project
+    run: npx cap sync android
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: kova-wallet-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+  - name: Build Android APK
+    run: |
+      cd android
+      chmod +x gradlew
+      ./gradlew assembleDebug
+
+  - name: Upload APK
+    uses: actions/upload-artifact@v4
+    with:
+      name: kova-wallet-debug-apk
+      path: android/app/build/outputs/apk/debug/app-debug.apk
+```
