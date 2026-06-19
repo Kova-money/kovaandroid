@@ -2,9 +2,11 @@ name: Build Android Wallet
 
 on:
 push:
-branches: [ main ]
+branches:
+- main
 pull_request:
-branches: [ main ]
+branches:
+- main
 
 jobs:
 build:
@@ -37,7 +39,7 @@ steps:
     uses: actions/setup-java@v4
     with:
       distribution: zulu
-      java-version: 21
+      java-version: '21'
 
   - name: Set up Android SDK
     uses: android-actions/setup-android@v3
