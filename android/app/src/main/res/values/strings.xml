@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kova Money</string>
+    <string name="title_activity_main">Kova Money</string>
+    <string name="package_name">money.kova.app</string>
+    <string name="custom_url_scheme">money.kova.app</string>
+</resources>
