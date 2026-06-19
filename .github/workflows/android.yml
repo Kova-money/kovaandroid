@@ -27,18 +27,14 @@ jobs:
     - name: Build Web Application
       run: npm run build
 
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'zulu'
 
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
-
-    - name: Install Android SDK Packages
-      run: |
-        sdkmanager "build-tools;34.0.0" "platforms;android-34"
 
     - name: Sync Capacitor Android Project
       run: npx cap sync
