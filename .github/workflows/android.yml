@@ -12,7 +12,6 @@ jobs:
 build:
 runs-on: ubuntu-latest
 
-```
 env:
   VITE_ZERODEV_PROJECT_ID: ${{ secrets.VITE_ZERODEV_PROJECT_ID }}
   VITE_ZERODEV_BUNDLER_URL: ${{ secrets.VITE_ZERODEV_BUNDLER_URL }}
@@ -58,4 +57,4 @@ steps:
     with:
       name: kova-wallet-debug-apk
       path: android/app/build/outputs/apk/debug/app-debug.apk
-```
+
