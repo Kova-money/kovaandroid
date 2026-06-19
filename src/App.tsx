@@ -6,7 +6,7 @@ import {
   ArrowUp, ArrowDown, Repeat, Bell, ChevronLeft, MoreHorizontal, 
   Droplet, ShoppingBag, CreditCard, Home, LogOut, Copy, Check, 
   Users, Send, Eye, EyeOff, Wifi, Signal, Battery, HelpCircle, 
-  Lock, Unlock, Shield, Cpu, RefreshCw, AlertCircle
+  Shield, Cpu, RefreshCw
 } from 'lucide-react'
 import { encodeFunctionData, parseUnits } from 'viem'
 import { USDC_ADDRESS } from './ZeroDevContext'
